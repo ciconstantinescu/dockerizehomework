@@ -1,19 +1,17 @@
-FROM node:8.5.0
+FROM node:14-slim
 
 
 # Step 3.1 - Add working directory
 
-WORKDIR /client
-
+WORKDIR /app
 
 # Step 3.2 - Copy npm dependencies
 
-COPY package.json client/package.json
+# COPY package.json client/package.json
+COPY package*.json ./
 
 # Step 3.3 - Install dependencies
 RUN npm install
-
-
 
 # Copy app source code
 
