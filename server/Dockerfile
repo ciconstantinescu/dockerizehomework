@@ -1,19 +1,16 @@
-FROM node:8.5.0
+FROM node:14-slim
 
 # Step 4.1 - Add container working directory
 
-WORKDIR /server
+WORKDIR /app
 
 
 # Step 4.2 - Copy npm dependencies
 
-COPY package.json server/package.json
-
+COPY package*.json ./
 
 # Step 4.3 - Install dependencies
 RUN npm install
-
-
 
 # Copy app source code
 
@@ -23,4 +20,4 @@ COPY . .
 
 EXPOSE 8080
 
-RUN npm install
+CMD [ "npm", "start" ]
